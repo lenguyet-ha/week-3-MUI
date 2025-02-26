@@ -18,7 +18,7 @@ const Icons = styled(Box)(({ theme }) => ({
   gap: '20px',
   [theme.breakpoints.up('sm')]: { display: 'flex' }
 }))
-const UserBox = styled(Box)(({ theme }) => ({
+const UserBox = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
   gap: '10px'
@@ -33,21 +33,22 @@ export const Navbar = () => {
     <AppBar position='sticky'>
       <StyledToolbar>
         <Typography variant='h6' sx={{ display: { xs: 'none', sm: 'block' } }}>
-          LAMA DEV
+          Facebook
         </Typography>
         <Pets sx={{ display: { xs: 'block', sm: 'none' } }} />
         <Search>
           <InputBase placeholder='Search...' />
         </Search>
-        <Icons>
-          <Badge badgeContent={4} color='error'>
-            <Mail />
-          </Badge>
-          <Badge badgeContent={2} color='error'>
-            <Notifications />
-          </Badge>
-        </Icons>
+
         <UserBox>
+          <Icons>
+            <Badge badgeContent={4} color='error'>
+              <Mail />
+            </Badge>
+            <Badge badgeContent={2} color='error'>
+              <Notifications />
+            </Badge>
+          </Icons>
           <Avatar
             onClick={handleToggle}
             sx={{ width: 30, height: 30 }}
