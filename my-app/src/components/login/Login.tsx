@@ -18,6 +18,7 @@ import PersonIcon from '@mui/icons-material/Person'
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useStyles } from '../login/Login.styles'
 
 export const Login = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -32,69 +33,74 @@ export const Login = () => {
     e.preventDefault()
     navigate('/home')
   }
+  const classes = useStyles()
   return (
     <Container
       maxWidth='xl'
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 5,
-        height: '100vh',
-        padding: 0,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
+      // sx={{
+      //   display: 'flex',
+      //   flexDirection: 'column',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   gap: 5,
+      //   height: '100vh',
+      //   padding: 0,
+      //   backgroundSize: 'cover',
+      //   backgroundPosition: 'center'
+      // }}
+      className={classes.container}
     >
       <Typography variant='h3' fontWeight='700' color='#358ed4' marginBottom='20px'>
         Facebook
       </Typography>
       <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
+        // sx={{
+        //   display: 'flex',
+        //   flexDirection: 'row',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
 
-          borderRadius: '20px',
-          padding: 0,
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.42)',
-          width: '100%',
-          maxWidth: '80%'
-        }}
+        //   borderRadius: '20px',
+        //   padding: 0,
+        //   boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.42)',
+        //   width: '100%',
+        //   maxWidth: '80%'
+        // }}
+        className={classes.container_in}
       >
         <Box
           component={'form'}
           onSubmit={handleSubmit}
           sx={{
-            background: 'rgba(255, 255, 255, 0.91)',
-            padding: 3,
-            borderRadius: isSmallScreen ? '30px' : '0',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100%',
-            maxWidth: '100%',
-            textAlign: 'center',
-            backdropFilter: 'blur(10px)'
+            // background: 'rgba(255, 255, 255, 0.91)',
+            // padding: 3,
+            borderRadius: isSmallScreen ? '30px' : '0'
+            // display: 'flex',
+            // flexDirection: 'column',
+            // justifyContent: 'center',
+            // alignItems: 'center',
+            // width: '100%',
+            // maxWidth: '100%',
+            // textAlign: 'center',
+            // backdropFilter: 'blur(10px)'
           }}
+          className={classes.box_form}
         >
           <Typography variant='h4' fontWeight={600} mb={2}>
             Login
           </Typography>
           <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              maxWidth: '90%',
-              width: '100%',
+            // sx={{
+            //   display: 'flex',
+            //   flexDirection: 'column',
+            //   alignItems: 'center',
+            //   justifyContent: 'center',
+            //   maxWidth: '90%',
+            //   width: '100%',
 
-              gap: 2
-            }}
+            //   gap: 2
+            // }}
+            className={classes.input}
           >
             <TextField
               sx={{ width: '100%', maxWidth: '80%' }}
@@ -149,13 +155,14 @@ export const Login = () => {
           <Button
             type='submit'
             sx={{
-              mt: 2,
-              width: '80%',
-              maxWidth: '70%',
-              fontSize: isSmallScreen ? '0.9rem' : '1.2rem',
-              backgroundColor: '#358ed4',
-              color: 'white'
+              // mt: 2,
+              // width: '80%',
+              // maxWidth: '70%',
+              fontSize: isSmallScreen ? '0.9rem' : '1.2rem'
+              // backgroundColor: '#358ed4',
+              // color: 'white'
             }}
+            className={classes.button}
           >
             Login
           </Button>
@@ -163,14 +170,11 @@ export const Login = () => {
             Or login with
           </Typography>
           <Box display='flex' justifyContent='center' gap={2} mt={1}>
-            <Button variant='contained' sx={{ width: '40%', display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Button variant='contained' className={classes.btn_fb}>
               <FacebookRoundedIcon />
               <Typography sx={{ fontSize: '12px', display: isSmallScreen ? 'none' : 'block' }}>Facebook</Typography>
             </Button>
-            <Button
-              variant='contained'
-              sx={{ width: '40%', display: 'flex', alignItems: 'center', gap: 1, bgcolor: '#eb358d' }}
-            >
+            <Button variant='contained' className={classes.btn_ig}>
               <img src='/ig.svg' alt='Instagram' style={{ width: 20, height: 20 }} />
 
               <Typography sx={{ fontSize: '12px', display: isSmallScreen ? 'none' : 'block' }}>Instagram</Typography>
@@ -185,20 +189,21 @@ export const Login = () => {
         </Box>
         <Box
           sx={{
-            display: isSmallScreen ? 'none' : 'block',
-            background: 'rgba(12, 104, 190, 0.53)', // Hiệu ứng mờ nhẹ
-            backgroundSize: 'cover', // Ảnh phủ kín Box nhưng có thể bị cắt
-            backgroundPosition: 'center', // Căn giữa ảnh
-            backgroundRepeat: 'no-repeat', // Không lặp lại ảnh
-            borderRadius: '0 15px 15px 0',
-            padding: 0,
-            width: '100%',
-            maxWidth: 500,
-            height: 'auto',
-            textAlign: 'center',
-            backdropFilter: 'blur(10px)', // Làm mờ nền phía sau
-            marginRight: -3
+            display: isSmallScreen ? 'none' : 'block'
+            // background: 'rgba(12, 104, 190, 0.53)', // Hiệu ứng mờ nhẹ
+            // backgroundSize: 'cover', // Ảnh phủ kín Box nhưng có thể bị cắt
+            // backgroundPosition: 'center', // Căn giữa ảnh
+            // backgroundRepeat: 'no-repeat', // Không lặp lại ảnh
+            // borderRadius: '0 15px 15px 0',
+            // padding: 0,
+            // width: '100%',
+            // maxWidth: 500,
+            // height: 'auto',
+            // textAlign: 'center',
+            // backdropFilter: 'blur(10px)', // Làm mờ nền phía sau
+            // marginRight: -3
           }}
+          className={classes.box_image}
         >
           <CardMedia component='img' height='100%' image='/Blue1.svg' sx={{ margin: 0 }} />
         </Box>

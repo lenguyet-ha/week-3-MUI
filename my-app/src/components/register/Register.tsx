@@ -16,6 +16,7 @@ import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useStyles } from './Register.styles'
 
 const schema = yup.object().shape({
   firstName: yup.string().required('First Name is required'),
@@ -43,6 +44,7 @@ interface RegisterForm {
   confirmPassword: string
 }
 export const Register = () => {
+  const classes = useStyles()
   const isSmallScreen = useMediaQuery('(min-width:375px) and (max-width:393px)')
   const [showPassword, setShowPassword] = useState(false)
   const navigate = useNavigate()
@@ -55,11 +57,6 @@ export const Register = () => {
     resolver: yupResolver(schema),
     mode: 'onChange'
   })
-
-  //   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault()
-  //     navigate('/login')
-  //   }
 
   return (
     <Container
@@ -75,12 +72,13 @@ export const Register = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
+      // className={classes.root}
     >
       <Typography
         variant='h4'
         fontWeight='700'
-        color='#358ed4'
-        marginBottom={{ xs: '10px', sm: '15px', md: '20px' }} // Giảm margin trên màn hình nhỏ
+
+        // className={classes.facebook} // Giảm margin trên màn hình nhỏ
       >
         Facebook
       </Typography>
@@ -102,6 +100,7 @@ export const Register = () => {
             lg: 'linear-gradient(to right, #358ed4 50%, white 50%)'
           }
         }}
+        // className={classes.container}
       >
         <Box
           component={'form'}
@@ -116,6 +115,7 @@ export const Register = () => {
             gap: { xs: 1, sm: 2, md: 3 }, // Thu nhỏ khoảng cách giữa các phần tử
             bgcolor: '#358ed4'
           }}
+          // className={classes.box_information}
         >
           <Typography alignSelf={'flex-start'} variant='h6' fontWeight='700' color='#fff'>
             INFORMATION
@@ -142,6 +142,7 @@ export const Register = () => {
               fontWeight: 600,
               padding: 0
             }}
+            // className={classes.login_button}
           >
             HAVE AN ACCOUNT
           </Button>
@@ -161,6 +162,7 @@ export const Register = () => {
             backdropFilter: 'blur(8px)',
             maxWidth: '100%'
           }}
+          // className={classes.form}
         >
           <Typography
             variant='h6'
@@ -171,7 +173,7 @@ export const Register = () => {
             REGISTER FORM
           </Typography>
           <Box display={'flex'} flexDirection={'column'} gap={{ xs: '10px', sm: '15px', md: '20px' }}>
-            <Box display={'flex'} gap={1}>
+            <Box display={'flex'} gap={1} width={'100%'}>
               <Box sx={{ minHeight: '80px' }}>
                 <TextField
                   {...register('firstName')}
