@@ -20,7 +20,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState<boolean>(false)
   const isSmallScreen = useMediaQuery('(min-width:375px) and (max-width:902px)')
 
   const handleTogglePassword = () => {
@@ -56,7 +56,7 @@ export const Login = () => {
           flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
-          border: '2px solid transparent', // Để hiển thị border gradient
+
           borderRadius: '20px',
           padding: 0,
           boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.42)',
