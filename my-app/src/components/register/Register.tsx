@@ -61,61 +61,64 @@ export const Register = () => {
   return (
     <Container
       maxWidth='xl'
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: { xs: 3, sm: 4, md: 5 }, // Giảm khoảng cách giữa các phần tử trên màn hình nhỏ
-        height: '100vh',
-        padding: { xs: 1, sm: 2, md: 0 }, // Thu nhỏ padding trên màn hình nhỏ
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}
-      // className={classes.root}
+      sx={
+        {
+          // display: 'flex',
+          // flexDirection: 'column',
+          // justifyContent: 'center',
+          // alignItems: 'center',
+          //  gap: { xs: 3, sm: 4, md: 5 }, // Giảm khoảng cách giữa các phần tử trên màn hình nhỏ
+          //  height: '100vh',
+          //padding: { xs: 1, sm: 2, md: 0 }, // Thu nhỏ padding trên màn hình nhỏ
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center'
+        }
+      }
+      className={classes.root}
     >
       <Typography
         variant='h4'
         fontWeight='700'
-
-        // className={classes.facebook} // Giảm margin trên màn hình nhỏ
+        className={classes.facebook} // Giảm margin trên màn hình nhỏ
       >
         Facebook
       </Typography>
       <Container
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'center',
-          borderRadius: '15px',
-          padding: { xs: 0, sm: 0, md: 0 }, // Giảm padding
-          boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
-          width: { xs: '95%', sm: '90%', md: '70%', lg: '100%' }, // Điều chỉnh width cho màn hình nhỏ
-          maxWidth: { xs: '100%', sm: '80%', md: '70%', lg: '900px' },
-          margin: '0 auto',
-          background: {
-            xs: 'white',
-            md: 'linear-gradient(to right, #358ed4 50%, white 50%)',
-            lg: 'linear-gradient(to right, #358ed4 50%, white 50%)'
-          }
-        }}
-        // className={classes.container}
+        disableGutters
+        maxWidth={false}
+        // sx={{
+        //   display: 'flex',
+        //   flexDirection: 'row',
+        //   justifyContent: 'center',
+        //   alignItems: 'center',
+        //   borderRadius: '15px',
+        //   padding: { xs: 0, sm: 0, md: 0 }, // Giảm padding
+        //   boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
+        //   width: { xs: '95%', sm: '90%', md: '70%', lg: '100%' }, // Điều chỉnh width cho màn hình nhỏ
+        //   maxWidth: { xs: '100%', sm: '80%', md: '70%', lg: '900px' },
+        //   margin: '0 auto',
+        //   background: {
+        //     xs: 'white',
+        //     md: 'linear-gradient(to right, #358ed4 50%, white 50%)',
+        //     lg: 'linear-gradient(to right, #358ed4 50%, white 50%)'
+        //   }
+        // }}
+        className={classes.container}
       >
         <Box
           component={'form'}
-          sx={{
-            display: { xs: 'none', sm: 'flex', md: 'flex' },
-            width: '50%',
-            padding: { xs: '15px', sm: '20px', md: '25px', lg: '20px' }, // Giảm padding trên màn hình nhỏ
-            borderRadius: { xs: '0', sm: '0', md: '15px 0 0 15px' }, // Điều chỉnh border radius
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            alignItems: 'flex-start',
-            gap: { xs: 1, sm: 2, md: 3 }, // Thu nhỏ khoảng cách giữa các phần tử
-            bgcolor: '#358ed4'
-          }}
-          // className={classes.box_information}
+          // sx={{
+          //   display: { xs: 'none', sm: 'flex', md: 'flex' },
+          //   width: '50%',
+          //   padding: { xs: '15px', sm: '20px', md: '25px', lg: '20px' }, // Giảm padding trên màn hình nhỏ
+          //   borderRadius: { xs: '0', sm: '0', md: '15px 0 0 15px' }, // Điều chỉnh border radius
+          //   flexDirection: 'column',
+          //   justifyContent: 'flex-start',
+          //   alignItems: 'flex-start',
+          //   gap: { xs: 1, sm: 2, md: 3 }, // Thu nhỏ khoảng cách giữa các phần tử
+          //   bgcolor: '#358ed4'
+          // }}
+          className={classes.box_information}
         >
           <Typography alignSelf={'flex-start'} variant='h6' fontWeight='700' color='#fff'>
             INFORMATION
@@ -133,36 +136,36 @@ export const Register = () => {
           <Button
             onClick={() => navigate('/login')}
             variant='contained'
-            sx={{
-              width: { xs: '50%', sm: '40%' }, // Giảm kích thước button trên màn hình nhỏ
-              height: { xs: '30px', sm: '35px', md: '40px' },
-              fontSize: { xs: '8px', sm: '10px', md: '12px' },
-              backgroundColor: '#fff',
-              color: 'black',
-              fontWeight: 600,
-              padding: 0
-            }}
-            // className={classes.login_button}
+            // sx={{
+            //   width: { xs: '50%', sm: '40%' }, // Giảm kích thước button trên màn hình nhỏ
+            //   height: { xs: '30px', sm: '35px', md: '40px' },
+            //   fontSize: { xs: '8px', sm: '10px', md: '12px' },
+            //   backgroundColor: '#fff',
+            //   color: 'black',
+            //   fontWeight: 600,
+            //   padding: 0
+            // }}
+            className={classes.login_button}
           >
-            HAVE AN ACCOUNT
+            <Typography fontSize={'12px'}>HAVE AN ACCOUNT</Typography>
           </Button>
         </Box>
         <Box
           component={'form'}
           onSubmit={handleSubmit((data: RegisterForm) => console.log(data))}
-          sx={{
-            background: 'rgba(255, 255, 255, 0.91)',
-            borderRadius: { xs: '0', sm: '0', md: '0px' },
-            display: 'flex',
-            flexDirection: 'column',
-            padding: { xs: '10px', sm: '15px', md: '20px' },
-            alignItems: 'center',
-            width: { xs: '95%', sm: '90%', md: '50%' },
-            textAlign: 'center',
-            backdropFilter: 'blur(8px)',
-            maxWidth: '100%'
-          }}
-          // className={classes.form}
+          // sx={{
+          //   background: 'rgba(255, 255, 255, 0.91)',
+          //   borderRadius: { xs: '0', sm: '0', md: '0px' },
+          //   display: 'flex',
+          //   flexDirection: 'column',
+          //   padding: { xs: '10px', sm: '15px', md: '20px' },
+          //   alignItems: 'center',
+          //   width: { xs: '95%', sm: '90%', md: '50%' },
+          //   textAlign: 'center',
+          //   backdropFilter: 'blur(8px)',
+          //   maxWidth: '100%'
+          // }}
+           className={classes.form}
         >
           <Typography
             variant='h6'
@@ -289,13 +292,15 @@ export const Register = () => {
             type='submit'
             disabled={!isValid}
             variant='contained'
-            sx={{
-              width: { xs: '50%', sm: '40%' },
-              height: { xs: '30px', sm: '35px', md: '40px' },
-              fontSize: { xs: '10px', sm: '12px', md: '14px' },
-              marginTop: '15px'
-            }}
-          >
+            // sx={{
+            //   width: { xs: '50%', sm: '40%' },
+            //   height: { xs: '30px', sm: '35px', md: '40px' },
+            //   fontSize: { xs: '10px', sm: '12px', md: '14px' },
+            //   marginTop: '15px'
+            // }}
+
+            className={classes.btn_register}
+           >
             Register
           </Button>
         </Box>

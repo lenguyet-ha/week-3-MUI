@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   facebook: {
-    color: '#358ed4',
+    color: '#358ed4 !important',
     marginBottom: '10px',
     [theme.breakpoints.up('sm')]: {
       marginBottom: '15px'
@@ -37,23 +37,23 @@ export const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '15px',
-    padding: 0,
+    padding: `${theme.spacing(0)} !important`,
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.3)',
     margin: '0 auto',
     width: '95%',
     maxWidth: '100%',
     [theme.breakpoints.up('sm')]: {
       width: '90%',
-      maxWidth: '80%'
-    },
-    [theme.breakpoints.up('md')]: {
-      width: '70%',
-      maxWidth: '70%'
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '100%',
       maxWidth: '900px'
     },
+    // [theme.breakpoints.up('md')]: {
+    //   width: '70%',
+    //   maxWidth: '70%'
+    // },
+    // [theme.breakpoints.up('lg')]: {
+    //   width: '100%',
+    //   maxWidth: '900px '
+    // },
 
     // Background theo kích thước màn hình
     background: 'white',
@@ -90,16 +90,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
     }
   },
   login_button: {
-    width: '50%', // Mặc định trên xs
+    width: '50%',
     height: '30px',
-    fontSize: '8px',
+
     backgroundColor: '#fff !important',
     color: 'black !important',
     fontWeight: 600,
     padding: 0,
 
     [theme.breakpoints.up('sm')]: {
-      width: '40%', 
+      width: '40%',
       height: '35px',
       fontSize: '10px'
     },
@@ -129,5 +129,23 @@ export const useStyles = makeStyles((theme: Theme) => ({
       width: '50%',
       borderRadius: '0px'
     }
+  },
+  btn_register: {
+
+      width: '50%', // Mặc định trên xs
+      height: '30px',
+      fontSize: '10px',
+      marginTop: `${theme.spacing(2)} !important`,
+  
+      [theme.breakpoints.up('sm')]: {
+        width: '40%',
+        height: '35px',
+        fontSize: '12px'
+      },
+      [theme.breakpoints.up('md')]: {
+        height: '40px',
+        fontSize: '14px'
+      }
+    
   }
 }))
