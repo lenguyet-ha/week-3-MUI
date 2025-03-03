@@ -1,59 +1,40 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  ButtonGroup,
-  Fab,
-  IconButton,
-  Modal,
-  Stack,
-  TextField,
-  Tooltip,
-  Typography
-} from '@mui/material'
+import { Avatar, Box, Button, ButtonGroup, Fab, IconButton, Modal, TextField, Tooltip, Typography } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
 import React, { useState } from 'react'
 import { EmojiEmotions, PersonAdd, VideoCameraBack, Image } from '@mui/icons-material'
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
+import { useStyles } from './Add.styles'
 
 export const Add = () => {
+  const classes = useStyles()
   const [open, setOpen] = useState(false)
   return (
     <div>
-      <Tooltip title='Add post' sx={{ position: 'fixed', bottom: 20, left: 0 }} onClick={() => setOpen(true)}>
-        <IconButton>
-          <Fab color='primary' aria-label='add'>
-            <AddIcon />
-          </Fab>
-        </IconButton>
-      </Tooltip>
+      <Box className={classes.tooltip}>
+        <Tooltip title='Add post' onClick={() => setOpen(true)}>
+          <IconButton>
+            <Fab color='primary' aria-label='add'>
+              <AddIcon />
+            </Fab>
+          </IconButton>
+        </Tooltip>
+      </Box>
+
       <Modal
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby='parent-modal-title'
         aria-describedby='parent-modal-description'
-        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        className={classes.modal}
       >
-        <Box
-          sx={{
-            width: 500,
-            borderRadius: 3,
-            padding: 3,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'start'
-          }}
-          bgcolor='background.default'
-          color='text.primary'
-          height='auto'
-        >
-          <Typography id='parent-modal-title' component='h3' fontWeight={600} sx={{ alignSelf: 'center' }}>
+        <Box className={classes.modal_box}>
+          <Typography id='parent-modal-title' component='h3' className={classes.parent_modal_title}>
             Create a post
           </Typography>
 
-          <Box display={'flex'} justifyContent={'flex-start'} width={'100%'} gap={2} alignItems={'center'} mb={2}>
-            <Avatar sx={{ width: 30, height: 30 }} alt='Remy Sharp' src='https://mui.com/static/images/avatar/1.jpg' />
-            <Typography sx={{ display: { xs: 'none', sm: 'block' } }}>John Doe</Typography>{' '}
+          <Box className={classes.user}>
+            <Avatar alt='Remy Sharp' src='https://mui.com/static/images/avatar/1.jpg' className={classes.avatar} />
+            <Typography className={classes.name}>John Doe</Typography>{' '}
           </Box>
           <TextField
             id='standard-multiline-static'
@@ -63,15 +44,19 @@ export const Add = () => {
             placeholder='What do you want to say?'
             variant='standard'
           />
-          <Stack direction='row' gap={1} mt={2} mb={3}>
+          <Box className={classes.iconStack}>
             <EmojiEmotions color='primary' />
             <Image color='secondary' />
             <VideoCameraBack color='success' />
             <PersonAdd color='error' />
-          </Stack>
+          </Box>
 
-          <ButtonGroup sx={{ alignSelf: 'center' }} variant='contained' aria-label='Button group with a nested menu'>
-            <Button sx={{ width: '100px' }}>Post</Button>
+          <ButtonGroup
+            className={classes.button_group}
+            variant='contained'
+            aria-label='Button group with a nested menu'
+          >
+            <Button className={classes.button_post}>Post</Button>
             <Button
               size='small'
               aria-controls={open ? 'split-button-menu' : undefined}
